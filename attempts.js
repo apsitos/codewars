@@ -24,16 +24,61 @@
 //
 // DNAStrand ("GTAT") # return "CATA"
 
-const DNA = {
-  A: 'T', C: 'G', T: 'A', G: 'C'
+
+// function DNAStrand(strand) {
+//   const DNA = {
+//     A: 'T', C: 'G', T: 'A', G: 'C'
+//   }
+//   let newDNA =
+//   strand.split('').reduce(function(gene, letter) {
+//     return gene + DNA[letter]
+//   }, [])
+//   console.log(newDNA);
+// }
+//
+// DNAStrand('ATTGC')
+
+// Write a function, persistence, that takes in a positive parameter num and returns its multiplicative persistence, which is the number of times you must multiply the digits in num until you reach a single digit.
+
+function persistence(num) {
+  function separate() {
+  let notNum = (num + '').split('')
+  let numArray = []
+  notNum.forEach(function(i) {
+    numArray.push(parseInt(i))
+  })
+  if(numArray.length > 1){
+    function multiply(array) {
+      let sum = 1
+      for(let i =0; i < array.length; i++){
+        sum = sum * array[i]
+      }
+      return(sum);
+    }
+    // console.log(multiply(numArray));
+    let newNum = multiply(numArray);
+  }
+   else {console.log(numArray)}
+ }
+ separate()
 }
 
-function DNAStrand(strand) {
-  let newDNA =
-  strand.split('').reduce(function(gene, letter) {
-    return gene + DNA[letter]
-  }, [])
-  console.log(newDNA);
-}
+persistence(99)
 
-DNAStrand('ATTGC')
+// let output = []
+// let notNum = num.toString()
+// if (notNum.length > 1) {
+//   for(let i = 0; i < notNum.length; i++ ){
+//     output.push(notNum.charAt(i))
+//   }
+//   console.log(output);
+//   for(let j = 0; j < output.length; j++){
+//     console.log();
+//   }
+// }
+// console.log(notNum);
+
+// evaluate the length of num, split the number into individual numbers, multiply them together
+
+// persistence(999) === 4 // because 9*9*9 = 729, 7*2*9 = 126,
+                       // 1*2*6 = 12, and finally 1*2 = 2
