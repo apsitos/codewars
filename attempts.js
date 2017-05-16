@@ -41,42 +41,31 @@
 // Write a function, persistence, that takes in a positive parameter num and returns its multiplicative persistence, which is the number of times you must multiply the digits in num until you reach a single digit.
 
 function persistence(num) {
-  function separate() {
-  let notNum = (num + '').split('')
+  let notNum = (num + '').split('').length
   let numArray = []
-  notNum.forEach(function(i) {
-    numArray.push(parseInt(i))
-  })
-  if(numArray.length > 1){
-    function multiply(array) {
-      let sum = 1
-      for(let i =0; i < array.length; i++){
-        sum = sum * array[i]
-      }
-      return(sum);
+  let newNum
+  function multiply() {
+    notNum = (num + '').split('')
+    notNum.forEach(function(i) {
+      numArray.push(parseInt(i))
+    })
+    let sum = 1
+    for (let i = 0; i < numArray.length; i++) {
+      sum = sum * numArray[i]
     }
-    // console.log(multiply(numArray));
-    let newNum = multiply(numArray);
+    console.log(sum)
+    newNum = sum
   }
-   else {console.log(numArray)}
- }
- separate()
+
+  notNum > 1 ? multiply() : console.log(0);
+
+  notNum = (newNum + '').split('').length
+  console.log(notNum);
+  notNum > 1 ? multiply() : console.log(0);
+
 }
 
-persistence(99)
-
-// let output = []
-// let notNum = num.toString()
-// if (notNum.length > 1) {
-//   for(let i = 0; i < notNum.length; i++ ){
-//     output.push(notNum.charAt(i))
-//   }
-//   console.log(output);
-//   for(let j = 0; j < output.length; j++){
-//     console.log();
-//   }
-// }
-// console.log(notNum);
+persistence(999)
 
 // evaluate the length of num, split the number into individual numbers, multiply them together
 
