@@ -42,10 +42,10 @@
 
 function persistence(num) {
   let notNum = (num + '').split('').length
-  let numArray = []
   let newNum
   function multiply() {
     notNum = (num + '').split('')
+    let numArray = []
     notNum.forEach(function(i) {
       numArray.push(parseInt(i))
     })
@@ -54,14 +54,13 @@ function persistence(num) {
       sum = sum * numArray[i]
     }
     console.log(sum)
-    newNum = sum
+    num = sum
   }
 
   notNum > 1 ? multiply() : console.log(0);
 
-  notNum = (newNum + '').split('').length
-  console.log(notNum);
-  notNum > 1 ? multiply() : console.log(0);
+  notNum = (num + '').split('').length
+  notNum > 1 ? multiply() : console.log(num);
 
 }
 
