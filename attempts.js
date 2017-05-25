@@ -92,20 +92,17 @@ function getAge(inputString) {
 function countCorrectCharacters(correctWord, guess){
   const real = correctWord.toLowerCase().split('');
   const attempt = guess.toLowerCase().split('');
-  for (let i = 0; i < real.length; i++) {
-    let match = false;
-    let array = [];
-    for (let j = 0; j < attempt.length; j++) {
-      if (real[i] === attempt[j]) {
-        match = true
-      }
-      if (match) {
-        array.push(attempt[j])
+  if (real.length !== attempt.length) {
+    throw 'ERROR!';
+  } else {
+    let array = []
+    for (let i = 0; i < real.length; i++) {
+      if (real[i] === attempt[i]) {
+        array.push(real[i])
       }
     }
-    console.log(array);
     return array.length;
   }
 }
 
-console.log(countCorrectCharacters('dog', 'god'));
+console.log(countCorrectCharacters("dog", "ecog"));
