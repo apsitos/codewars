@@ -18,10 +18,10 @@ function cakes(recipe, available) {
 
 
 // In DNA strings, symbols "A" and "T" are complements of each other, as "C" and "G". You have function with one side of the DNA (string, except for Haskell); you need to get the other complementary side. DNA strand is never empty or there is no DNA at all (again, except for Haskell).
-
-DNAStrand ("ATTGC") # return "TAACG"
-
-DNAStrand ("GTAT") # return "CATA"
+//
+// DNAStrand ("ATTGC") # return "TAACG"
+//
+// DNAStrand ("GTAT") # return "CATA"
 
 function DNAStrand(strand) {
   const DNA = {
@@ -78,3 +78,34 @@ function getAge(inputString) {
 }
 
 // getAge('5 years old')
+
+
+//Guess the Word: Count Matching Letters
+// Consider a game, wherein the player has to guess a target word. All the player knows is the length of the target word.
+//
+// To help them in their goal, the game will accept guesses, and return the number of letters that are in the correct position.
+//
+// Write a method that, given the correct word and the player's guess, returns this number.
+
+  //First, put both strings into arrays. Then, loop through first array and compare each item to the first element in the second array. If there is a match,
+  //push that element into a new array. Repeat for each element in second array. Return the length of the new array.
+function countCorrectCharacters(correctWord, guess){
+  const real = correctWord.toLowerCase().split('');
+  const attempt = guess.toLowerCase().split('');
+  for (let i = 0; i < real.length; i++) {
+    let match = false;
+    let array = [];
+    for (let j = 0; j < attempt.length; j++) {
+      if (real[i] === attempt[j]) {
+        match = true
+      }
+      if (match) {
+        array.push(attempt[j])
+      }
+    }
+    console.log(array);
+    return array.length;
+  }
+}
+
+console.log(countCorrectCharacters('dog', 'god'));
