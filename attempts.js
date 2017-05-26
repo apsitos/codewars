@@ -34,7 +34,7 @@ function DNAStrand(strand) {
   console.log(newDNA);
 }
 
-// DNAStrand('ATTGC')
+// console.log(DNAStrand('ATTGC'));
 
 // Write a function, persistence, that takes in a positive parameter num and returns its multiplicative persistence, which is the number of times you must multiply the digits in num until you reach a single digit.
 
@@ -61,7 +61,7 @@ function persistence(num) {
 
 }
 
-// persistence(999)
+// console.log(persistence(999));
 
 // evaluate the length of num, split the number into individual numbers, multiply them together
 
@@ -105,9 +105,25 @@ function countCorrectCharacters(correctWord, guess){
   }
 }
 
-// console.log(countCorrectCharacters("dog", "ecog"));
+//Mike's solution:
+function countCorrectCharacters(correctWord, guess) {
+  if (correctWord.length !== guess.length) {
+    throw 'ERROR!';
+  } else {
+    let count = 0
+    for (let i = 0; i < correctWord.length; i++) {
+      if (correctWord[i] === guess[i]) {
+        count++
+      }
+    }
+    return count;
+  }
+}
+
+// console.log(countCorrectCharacters("dog", "cog"));
 
 //Whose Move
+
 // Two players - "black" and "white" are playing a game. The game consists of several rounds. If a player wins in a round,
 // he is to move again during the next round. If a player loses a round, it's the other player who moves on the next round.
 // Given whose turn it was on the previous round and whether he won, determine whose turn it is on the next round.
@@ -119,4 +135,31 @@ function whoseMove(lastPlayer, win) {
   return lastPlayer
 }
 
-console.log(whoseMove('black', false));
+// console.log(whoseMove('black', false));
+
+// Is Prime
+//
+// Define a function isPrime that takes one integer argument and returns true or false depending on if the integer is a prime.
+// Per Wikipedia, a prime number (or a prime) is a natural number greater than 1 that has no positive divisors other than 1 and itself.
+
+//Check to see if the number is 0 or 1 (therefore not prime). If neither, is the number evenly divisible by 2, 3, or 5. If true '<num> is prime'. If false,
+//'<num> is not prime.'
+
+function isPrime(num) {
+  num > 0 ? num = num : num = Math.abs(num)
+  let prime = true
+  if (num !== 0 || 1) {
+    let count = 0
+    for (let i = 1; i < num; i++) {
+      if (num % i == 0) {
+        count++
+      }
+    }
+    count == 1 ? prime = true : prime = false
+  } else {
+    prime = false
+  }
+  return prime
+}
+
+console.log(isPrime(-4247));
